@@ -9,8 +9,7 @@ cmake_policy(SET CMP0076 NEW) # avoid warning of relative paths translation
 
 add_executable(app)
 target_include_directories(app PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(app PRIVATE ${CMAKE_SOURCE_DIR}/Inc)
 
-target_sources(app
-        PRIVATE
-        app.c # or app.cpp
-)
+file(GLOB_RECURSE SOURCES "Src/*.cpp")
+target_sources(app PRIVATE ${SOURCES})
